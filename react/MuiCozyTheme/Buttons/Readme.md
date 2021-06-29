@@ -1,83 +1,196 @@
-```
-import Button from 'cozy-ui/transpiled/react/MuiCozyTheme/Buttons';
-import Typography from 'cozy-ui/transpiled/react/Typography';
-import Icon from 'cozy-ui/transpiled/react/Icon'
+### Default
+
+```jsx
+import Button, { MuiButton } from 'cozy-ui/transpiled/react/MuiCozyTheme/Buttons'
 import Stack from 'cozy-ui/transpiled/react/Stack'
-import WrenchCircleIcon from 'cozy-ui/transpiled/react/Icons/WrenchCircle'
+import Grid from 'cozy-ui/transpiled/react/MuiCozyTheme/Grid'
+import Paper from 'cozy-ui/transpiled/react/Paper'
+import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
 
-const ButtonsVariant = ({variant, size }) => {
-  return (
-    <div>
-      <Button variant={variant} size={size}>
-        <Icon icon={WrenchCircleIcon} className='u-mr-half' />
-        Default
-      </Button>
-      <Button variant={variant} size={size} color="primary" className='u-ml-half'>
-        <Icon icon={WrenchCircleIcon} className='u-mr-half' />
-        Primary
-      </Button>
-      <Button variant={variant} size={size} color="secondary"  className='u-ml-half'>Secondary</Button>
-      <Button variant={variant} size={size} disabled  className='u-ml-half'>Disabled</Button>
-      <Button variant={variant} size={size} href="#text-buttons"  className='u-ml-half'>Link</Button>
-    </div>
-  )
-}
+const variants = ['primary', 'secondary', 'ghost', 'text']
+const propsArr = [{}, { disabled: true }, { busy: true }]
 
-
-const StateRadio = ({ name, ...props }) => {
-  return <input
-    type='radio'
-    name={name}
-    checked={state[name] == props.value}
-    onChange={() => setState({ [name]: props.value })}
-    {...props}
-  />
-}
-
-const Example = ({ size, className }) => {
-  return (
-    <Stack spacing='s'>
-      <div>
-        <Typography variant='subtitle1' gutterBottom>Text Buttons</Typography>
-        <ButtonsVariant size={size} />
-      </div>
-      <div>
-        <Typography variant='subtitle1' gutterBottom>Outlined Buttons</Typography>
-        <ButtonsVariant variant='outlined' size={size}/>
-      </div>
-      <div>
-        <Typography variant='subtitle1'  gutterBottom>Contained buttons</Typography>
-        <ButtonsVariant variant='contained' size={size} />
-      </div>
-    </Stack>
-  )
-}
-
-initialState = {
-  size: 'medium'
-};
+;
 
 <>
-  {true || isTesting()
-  ? 
-    <Stack spacing='l'>
-      {['small', 'medium', 'large'].map(size => (
-        <Stack spacing='xs'>
-          <Typography variant='h3'>{ size }</Typography>
-          <Example size={size} />
+  <Grid container>
+    {propsArr.map(props =>
+      <Grid item xs={4} className="u-mb-1" key={JSON.stringify(props)}>
+        <Stack spacing="s">
+          <div>{Object.keys(props)[0] || 'default'}</div>
+          {variants.map(variant =>
+            <div>
+              <Button key={variant + JSON.stringify(props)} label={variant} variant={variant} {...props} />
+            </div>
+          )}
         </Stack>
-      ))}
-    </Stack> :
-    <Stack spacing='m'>
-      <div>
-        <StateRadio value='small' name='size' /> small{' '}
-        <StateRadio value='medium' name='size' /> medium{' '}
-        <StateRadio value='large' name='size' /> large
-      </div>
-      <div>
-        <Example size={state.size} />
-      </div>
-    </Stack>
-  }
+      </Grid>
+    )}
+  </Grid>
+  <CozyTheme variant='inverted'>
+    <Paper className='u-p-1'>
+      <Grid container>
+        {propsArr.map(props =>
+          <Grid item xs={4} className="u-mb-1" key={JSON.stringify(props)}>
+            <Stack spacing="s">
+              <div>{Object.keys(props)[0] || 'default'}</div>
+              {variants.map(variant =>
+                <div>
+                  <Button key={variant + JSON.stringify(props)} label={variant} variant={variant} {...props} />
+                </div>
+              )}
+            </Stack>
+          </Grid>
+        )}
+      </Grid>
+    </Paper>
+  </CozyTheme>
+</>
+```
+
+### Color
+
+```jsx
+import Button from 'cozy-ui/transpiled/react/MuiCozyTheme/Buttons'
+import Stack from 'cozy-ui/transpiled/react/Stack'
+import Grid from 'cozy-ui/transpiled/react/MuiCozyTheme/Grid'
+import Paper from 'cozy-ui/transpiled/react/Paper'
+import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
+
+const variants = ['primary', 'secondary', 'ghost', 'text']
+const colors = ['success', 'error', 'warning', 'info', 'highlight']
+
+;
+<>
+  <Grid container>
+    {colors.map(color =>
+      <Grid item xs={2} className="u-mb-1" key={color}>
+        <Stack spacing="s">
+          <div>{color}</div>
+          {variants.map(variant =>
+            <div>
+              <Button key={variant + color} label={variant} variant={variant} color={color} />
+            </div>
+          )}
+        </Stack>
+      </Grid>
+    )}
+  </Grid>
+  <CozyTheme variant='inverted'>
+    <Paper className='u-p-1'>
+      <Grid container>
+        {colors.map(color =>
+          <Grid item xs={2} className="u-mb-1" key={color}>
+            <Stack spacing="s">
+              <div>{color}</div>
+              {variants.map(variant =>
+                <div>
+                  <Button key={variant + color} label={variant} variant={variant} color={color} />
+                </div>
+              )}
+            </Stack>
+          </Grid>
+        )}
+      </Grid>
+    </Paper>
+  </CozyTheme>
+</>
+```
+
+### Disabled color
+
+```jsx
+import Button from 'cozy-ui/transpiled/react/MuiCozyTheme/Buttons'
+import Stack from 'cozy-ui/transpiled/react/Stack'
+import Grid from 'cozy-ui/transpiled/react/MuiCozyTheme/Grid'
+import Paper from 'cozy-ui/transpiled/react/Paper'
+import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
+
+const variants = ['primary', 'secondary', 'ghost', 'text']
+const colors = ['success', 'error', 'warning', 'info', 'highlight']
+
+;
+<>
+  <Grid container>
+    {colors.map(color =>
+      <Grid item xs={2} className="u-mb-1" key={color}>
+        <Stack spacing="s">
+          <div>{color}</div>
+          {variants.map(variant =>
+            <div>
+              <Button key={variant + color} label={variant} variant={variant} color={color} disabled={true} />
+            </div>
+          )}
+        </Stack>
+      </Grid>
+    )}
+  </Grid>
+  <CozyTheme variant='inverted'>
+    <Paper className='u-p-1'>
+      <Grid container>
+        {colors.map(color =>
+          <Grid item xs={2} className="u-mb-1" key={color}>
+            <Stack spacing="s">
+              <div>{color}</div>
+              {variants.map(variant =>
+                <div>
+                  <Button key={variant + color} label={variant} variant={variant} color={color} disabled={true} />
+                </div>
+              )}
+            </Stack>
+          </Grid>
+        )}
+      </Grid>
+    </Paper>
+  </CozyTheme>
+</>
+```
+
+### Busy color
+
+```jsx
+import Button from 'cozy-ui/transpiled/react/MuiCozyTheme/Buttons'
+import Stack from 'cozy-ui/transpiled/react/Stack'
+import Grid from 'cozy-ui/transpiled/react/MuiCozyTheme/Grid'
+import Paper from 'cozy-ui/transpiled/react/Paper'
+import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
+
+const variants = ['primary', 'secondary', 'ghost', 'text']
+const colors = ['success', 'error', 'warning', 'info', 'highlight']
+
+;
+<>
+  <Grid container>
+    {colors.map(color =>
+      <Grid item xs={2} className="u-mb-1" key={color}>
+        <Stack spacing="s">
+          <div>{color}</div>
+          {variants.map(variant =>
+            <div>
+              <Button key={variant + color} label={variant} variant={variant} color={color} busy={true} />
+            </div>
+          )}
+        </Stack>
+      </Grid>
+    )}
+  </Grid>
+  <CozyTheme variant='inverted'>
+    <Paper className='u-p-1'>
+      <Grid container>
+        {colors.map(color =>
+          <Grid item xs={2} className="u-mb-1" key={color}>
+            <Stack spacing="s">
+              <div>{color}</div>
+              {variants.map(variant =>
+                <div>
+                  <Button key={variant + color} label={variant} variant={variant} color={color} busy={true} />
+                </div>
+              )}
+            </Stack>
+          </Grid>
+        )}
+      </Grid>
+    </Paper>
+  </CozyTheme>
 </>
 ```

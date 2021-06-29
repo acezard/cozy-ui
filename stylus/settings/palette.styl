@@ -1,11 +1,12 @@
 @require '../tools/mixins'
+palette=json('../../theme/palette.json', { hash: true })
 
 $errorColor=#F52D2D
 $errorBackground=#FFF2F2
-
 $successColor=#35CE68
 $warningColor=#FF962F
 $infoColor=#34373F
+
 
 // @stylint off
 /*------------------------------------*\
@@ -139,7 +140,7 @@ html, .CozyTheme--normal
 
     Styleguide Settings.theme.primary
     */
-    --primaryColor #297EF2
+    --primaryColor palette.Primary['600']
     --primaryColorDark #0B61D6
     --primaryColorLight #5C9DF5
     --primaryColorLightest #9FC4FB
@@ -207,11 +208,18 @@ html, .CozyTheme--normal
     Stylus: warningColor -  #FF962F, CSS: var(--warningColor)
     Stylus: errorColor -  #F52D2D, CSS: var(--errorColor)
     Stylus: infoColor -  #34373F, CSS: var(--infoColor)
+    Stylus: highlightColor -  #A346CD, CSS: var(--highlightColor)
 
     Styleguide Settings.theme.intention
     */
     --successColor: $successColor
+    --successColorDark: darken($successColor, 10)
     --warningColor: $warningColor
+    --warningColorDark: darken($warningColor, 10)
+    --highlightColor: palette.Secondary['600']
+    --highlightColorDark: palette.Secondary['700']
+    --infoColor: $infoColor
+    --infoColorDark: darken($infoColor, 10)
 
     --errorColor: $errorColor
     --errorColorDark: darken($errorColor, 24)

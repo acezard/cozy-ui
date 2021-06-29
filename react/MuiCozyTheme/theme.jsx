@@ -98,8 +98,26 @@ const normalPalette = {
     dark: getCssVariableValue('primaryColorDark'),
     contrastText: getCssVariableValue('primaryContrastTextColor')
   },
+  success: {
+    main: getCssVariableValue('successColor'),
+    dark: getCssVariableValue('successColorDark')
+  },
+  warning: {
+    main: getCssVariableValue('warningColor'),
+    dark: getCssVariableValue('warningColorDark')
+  },
   error: {
-    main: getCssVariableValue('errorColor')
+    main: getCssVariableValue('errorColor'),
+    dark: getCssVariableValue('errorColorDark')
+  },
+  info: {
+    light: `${defaultPalette.Grey['900']}29`, // 16% opacity
+    main: getCssVariableValue('infoColor'),
+    dark: getCssVariableValue('infoColorDark')
+  },
+  highlight: {
+    main: getCssVariableValue('highlightColor'),
+    dark: getCssVariableValue('highlightColorDark')
   },
   secondary: {
     light: getCssVariableValue('secondaryColorLight'),
@@ -124,6 +142,11 @@ const normalPalette = {
   actions: {
     focus: 'rgba(0, 0, 0, 0.12)'
   }
+}
+
+normalPalette.primary = {
+  ...normalPalette.primary,
+  extraLight: `${normalPalette.primary.main}1A` // 26% opacity
 }
 
 normalPalette.background = {
@@ -153,9 +176,6 @@ export const normalTheme = createMuiTheme({
     MuiTabs: {
       textColor: 'primary',
       TabIndicatorProps: { color: 'primary' }
-    },
-    MuiButton: {
-      disableRipple: true
     },
     MuiListItem: {
       disableRipple: true
@@ -187,7 +207,15 @@ const makeOverrides = theme => ({
   MuiButton: {
     root: {
       height: '2.5rem',
-      padding: '0px 1rem'
+      padding: '0px 1rem',
+      '&.customVariant': {
+        '&-ghost': {
+          borderStyle: 'dashed !important', // important needed to override disable state
+          '&:hover': {
+            borderStyle: 'dashed !important' // important needed to override disable state
+          }
+        }
+      }
     },
     sizeSmall: {
       height: '2rem',
@@ -197,17 +225,164 @@ const makeOverrides = theme => ({
       padding: '0px 1.25rem',
       height: '3rem'
     },
+    text: {
+      '&:not($disabled)': {
+        '&.customColor': {
+          '&-success': {
+            color: theme.palette.success.main,
+            '&:hover': {
+              backgroundColor: `${theme.palette.success.main}0D` //5% opacity
+            }
+          },
+          '&-warning': {
+            color: theme.palette.warning.main,
+            '&:hover': {
+              backgroundColor: `${theme.palette.warning.main}0D` //5% opacity
+            }
+          },
+          '&-error': {
+            color: theme.palette.error.main,
+            '&:hover': {
+              backgroundColor: `${theme.palette.error.main}0D` //5% opacity
+            }
+          },
+          '&-info': {
+            color: theme.palette.info.main,
+            '&:hover': {
+              backgroundColor: `${theme.palette.info.main}0D` //5% opacity
+            }
+          },
+          '&-highlight': {
+            color: theme.palette.highlight.main,
+            '&:hover': {
+              backgroundColor: `${theme.palette.highlight.main}0D` //5% opacity
+            }
+          }
+        }
+      }
+    },
     outlined: {
       borderRadius: 2,
-      minWidth: 112
+      minWidth: 112,
+      '&:not($disabled)': {
+        '&.customVariant-ghost': {
+          backgroundColor: `${theme.palette.primary.main}0D`, //5% opacity
+          '&:hover': {
+            backgroundColor: `${theme.palette.primary.main}33` //20% opacity
+          }
+        },
+        '&.customColor': {
+          '&-success': {
+            color: theme.palette.success.main,
+            borderColor: theme.palette.success.main,
+            '&:hover': {
+              backgroundColor: `${theme.palette.success.main}0D` //5% opacity
+            },
+            '&.customVariant-ghost': {
+              backgroundColor: `${theme.palette.success.main}0D`, //5% opacity
+              '&:hover': {
+                backgroundColor: `${theme.palette.success.main}33` //20% opacity
+              }
+            }
+          },
+          '&-warning': {
+            color: theme.palette.warning.main,
+            borderColor: theme.palette.warning.main,
+            '&:hover': {
+              backgroundColor: `${theme.palette.warning.main}0D` //5% opacity
+            },
+            '&.customVariant-ghost': {
+              backgroundColor: `${theme.palette.warning.main}0D`, //5% opacity
+              '&:hover': {
+                backgroundColor: `${theme.palette.warning.main}33` //20% opacity
+              }
+            }
+          },
+          '&-error': {
+            color: theme.palette.error.main,
+            borderColor: theme.palette.error.main,
+            '&:hover': {
+              backgroundColor: `${theme.palette.error.main}0D` //5% opacity
+            },
+            '&.customVariant-ghost': {
+              backgroundColor: `${theme.palette.error.main}0D`, //5% opacity
+              '&:hover': {
+                backgroundColor: `${theme.palette.error.main}33` //20% opacity
+              }
+            }
+          },
+          '&-info': {
+            color: theme.palette.info.main,
+            borderColor: theme.palette.info.light,
+            '&:hover': {
+              backgroundColor: `${theme.palette.info.main}0D` //5% opacity
+            },
+            '&.customVariant-ghost': {
+              backgroundColor: `${theme.palette.info.main}0D`, //5% opacity
+              '&:hover': {
+                backgroundColor: `${theme.palette.info.main}33` //20% opacity
+              }
+            }
+          },
+          '&-highlight': {
+            color: theme.palette.highlight.main,
+            borderColor: theme.palette.highlight.main,
+            '&:hover': {
+              backgroundColor: `${theme.palette.highlight.main}0D` //5% opacity
+            },
+            '&.customVariant-ghost': {
+              backgroundColor: `${theme.palette.highlight.main}0D`, //5% opacity
+              '&:hover': {
+                backgroundColor: `${theme.palette.highlight.main}33` //20% opacity
+              }
+            }
+          }
+        }
+      }
     },
     contained: {
       borderRadius: 2,
       boxShadow: 0,
-      minWidth: 112
-    },
-    containedSecondary: {
-      color: 'white'
+      minWidth: 112,
+      '&:not($disabled)': {
+        '&.customColor': {
+          '&-success': {
+            color: theme.palette.primary.contrastText,
+            backgroundColor: theme.palette.success.main,
+            '&:hover': {
+              backgroundColor: theme.palette.success.dark
+            }
+          },
+          '&-warning': {
+            color: theme.palette.primary.contrastText,
+            backgroundColor: theme.palette.warning.main,
+            '&:hover': {
+              backgroundColor: theme.palette.warning.dark
+            }
+          },
+          '&-error': {
+            color: theme.palette.primary.contrastText,
+            backgroundColor: theme.palette.error.main,
+            '&:hover': {
+              backgroundColor: theme.palette.error.dark
+            }
+          },
+          '&-info': {
+            color: theme.palette.primary.contrastText,
+            backgroundColor: theme.palette.info.main,
+            '&:hover': {
+              backgroundColor: theme.palette.info.dark
+            }
+          },
+          '&-highlight': {
+            color: theme.palette.primary.contrastText,
+            backgroundColor: theme.palette.highlight.main,
+            '&:hover': {
+              backgroundColor: theme.palette.highlight.dark
+            }
+          }
+        }
+      }
     }
   },
   MuiTab: {
@@ -675,6 +850,10 @@ invertedPalette.action = {
   disabled: `${invertedPalette.primary.main}40`, // 26% opacity
   disabledBackground: `${invertedPalette.primary.main}1F`, // 12% opacity
   focus: `${invertedPalette.primary.main}1F` // 12% opacity
+}
+invertedPalette.info = {
+  light: `${invertedPalette.primary.main}52`, // 32% opacity
+  main: invertedPalette.primary.main
 }
 
 const invertedTypography = makeTypography(invertedPalette)
