@@ -50,22 +50,26 @@ const screenshotReactStyleguide = async (page, args, config) => {
   console.log('Screenshotting components')
 
   for (const component of components) {
-    const componentConfig = config[component.name] || {}
-    const componentViewportSpec =
-      (componentConfig.viewports && componentConfig.viewports[args.viewport]) ||
-      null
-    const componentViewport = componentViewportSpec
-      ? parseViewportArgument(componentViewportSpec)
-      : parseViewportArgument(args.viewport)
-    await page.setViewport(componentViewport)
-    for (const theme of Object.keys(themes)) {
-      await screenshotComponent(page, {
-        component,
-        componentConfig,
-        screenshotDir: args.screenshotDir,
-        viewport: componentViewport,
-        theme
-      })
+    const index = components.indexOf(component)
+    if (index < 113) {
+      const componentConfig = config[component.name] || {}
+      const componentViewportSpec =
+        (componentConfig.viewports &&
+          componentConfig.viewports[args.viewport]) ||
+        null
+      const componentViewport = componentViewportSpec
+        ? parseViewportArgument(componentViewportSpec)
+        : parseViewportArgument(args.viewport)
+      await page.setViewport(componentViewport)
+      for (const theme of Object.keys(themes)) {
+        await screenshotComponent(page, {
+          component,
+          componentConfig,
+          screenshotDir: args.screenshotDir,
+          viewport: componentViewport,
+          theme
+        })
+      }
     }
   }
 }
