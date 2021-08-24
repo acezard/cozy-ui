@@ -22238,18 +22238,21 @@ body {
 
 .c-file-path--XvgNN {
   display: block;
-  color: var(--coolGrey);
+  color: var(--secondaryTextColor);
   font-size: 0.75rem;
   text-decoration: none;
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  text-decoration: inherit;
 }
-.c-file-path--XvgNN:hover,
-.c-file-path--XvgNN:focus {
-  text-decoration: inherit;
+
+.c-file-path-link--1BAwF {
+  text-decoration: none;
+}
+.c-file-path-link--1BAwF :first-child:hover {
+  color: var(--secondaryTextColor);
+  text-decoration: underline;
 }
 
 html {
