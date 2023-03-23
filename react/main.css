@@ -26677,7 +26677,12 @@ html {
 }
 .SquareAppIcon-wrapper-loading--3A1_X {
   border-radius: 50%;
-  transform: scale(0.8125);
+  transform: scale(0.875);
+}
+@media (max-width: 48rem) {
+  .SquareAppIcon-wrapper-loading--3A1_X {
+    transform: scale(0.8334);
+  }
 }
 .SquareAppIcon-spinner--o0LO1 svg {
   position: absolute;
