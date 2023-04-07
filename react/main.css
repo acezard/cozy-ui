@@ -26684,10 +26684,45 @@ html {
     transform: scale(0.8334);
   }
 }
+.SquareAppIcon-spinner--o0LO1 {
+  margin: 0 !important;
+}
 .SquareAppIcon-spinner--o0LO1 svg {
   position: absolute;
   height: 100%;
   width: 100%;
+}
+.onEnd--1O6Q7 {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 300ms, border-radius 300ms, background-color 300ms;
+  width: 100%;
+  z-index: 1;
+}
+.onEnd--1O6Q7 svg {
+  display: none;
+  fill: transparent !important;
+}
+.onEnd--1O6Q7 svg * {
+  stroke: var(--white) !important;
+}
+.onEnd--1O6Q7.isFailed--2AYxx {
+  background-color: var(--errorColor);
+}
+.onEnd--1O6Q7.isSuccess--I6nFq {
+  background-color: var(--successColor);
+}
+.isSuccess--I6nFq,
+.isFailed--2AYxx {
+  border-radius: 0.75rem;
+  opacity: 1;
+}
+.isSuccess--I6nFq svg,
+.isFailed--2AYxx svg {
+  display: block;
 }
 
 .Sections__section--2onYy {
