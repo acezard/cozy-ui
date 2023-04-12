@@ -26690,13 +26690,13 @@ iframe {
   fill: transparent !important;
 }
 .onEnd--1O6Q7 svg path {
-  animation-duration: 0.3s !important;
+  animation-duration: 0.2s !important;
 }
 .onEnd--1O6Q7 svg path:first-of-type {
-  animation-delay: 0.15s !important;
+  animation-delay: 0.2s !important;
 }
 .onEnd--1O6Q7 svg path+path {
-  animation-delay: 0.31s !important;
+  animation-delay: 0.36s !important;
 }
 .onEnd--1O6Q7 svg * {
   stroke: var(--white) !important;
@@ -26709,7 +26709,7 @@ iframe {
 }
 .isSuccess--I6nFq,
 .isFailed--2AYxx {
-  animation: end-animation--1O0b3 1.45s forwards;
+  animation: end-animation--1O0b3 1.5s forwards;
 }
 @-moz-keyframes end-animation--1O0b3 {
   0% {
@@ -26717,12 +26717,12 @@ iframe {
     border-radius: 50%;
     opacity: 0;
   }
-  10.34% {
+  13.33% {
     background-color: var(--animationColor);
     border-radius: 0.75rem;
     opacity: 1;
   }
-  65.52% {
+  66.67% {
     background-color: var(--animationColor);
     border-radius: 0.75rem;
     opacity: 1;
@@ -26739,12 +26739,12 @@ iframe {
     border-radius: 50%;
     opacity: 0;
   }
-  10.34% {
+  13.33% {
     background-color: var(--animationColor);
     border-radius: 0.75rem;
     opacity: 1;
   }
-  65.52% {
+  66.67% {
     background-color: var(--animationColor);
     border-radius: 0.75rem;
     opacity: 1;
@@ -26761,12 +26761,12 @@ iframe {
     border-radius: 50%;
     opacity: 0;
   }
-  10.34% {
+  13.33% {
     background-color: var(--animationColor);
     border-radius: 0.75rem;
     opacity: 1;
   }
-  65.52% {
+  66.67% {
     background-color: var(--animationColor);
     border-radius: 0.75rem;
     opacity: 1;
@@ -26783,12 +26783,12 @@ iframe {
     border-radius: 50%;
     opacity: 0;
   }
-  10.34% {
+  13.33% {
     background-color: var(--animationColor);
     border-radius: 0.75rem;
     opacity: 1;
   }
-  65.52% {
+  66.67% {
     background-color: var(--animationColor);
     border-radius: 0.75rem;
     opacity: 1;
