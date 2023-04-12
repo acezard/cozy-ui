@@ -26695,7 +26695,7 @@ iframe {
 .onEnd--1O6Q7 svg path:first-of-type {
   animation-delay: 0.15s !important;
 }
-.onEnd--1O6Q7 svg path:last-child {
+.onEnd--1O6Q7 svg path+path {
   animation-delay: 0.31s !important;
 }
 .onEnd--1O6Q7 svg * {
