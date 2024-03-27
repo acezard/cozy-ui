@@ -9480,11 +9480,8 @@ body {
   text-decoration: none;
   height: auto;
 }
-.c-nav-item-secondary--k14rf .c-nav-link--3mK6W p {
-  color: var(--actionColorActive);
-}
-.c-nav-item-secondary--k14rf .c-nav-link--3mK6W.is-active--2D0jN,
-.c-nav-item-secondary--k14rf .c-nav-link--3mK6W color var(\--primaryContrastTextColor) {
+.c-nav-item-secondary--k14rf .c-nav-link--3mK6W.is-active--2D0jN {
+  color: var(--primaryContrastTextColor);
   border-right: 1px solid var(--actionColorActive);
   background-color: var(--actionColorActive);
 }
@@ -9519,11 +9516,8 @@ body {
   text-decoration: none;
   height: auto;
 }
-.c-nav-limiter-dropdown--31OeA p {
-  color: var(--actionColorActive);
-}
-.c-nav-limiter-dropdown--31OeA.is-active--1GofC,
-.c-nav-limiter-dropdown--31OeA color var(\--primaryContrastTextColor) {
+.c-nav-limiter-dropdown--31OeA.is-active--1GofC {
+  color: var(--primaryContrastTextColor);
   border-right: 1px solid var(--actionColorActive);
   background-color: var(--actionColorActive);
 }
@@ -9531,6 +9525,10 @@ body {
   max-height: 50vh;
   overflow-y: auto;
   overflow-x: hidden;
+}
+.c-nav-limiter-dropdown--31OeA span,
+.c-nav-limiter-dropdown--31OeA svg {
+  color: var(--actionColorActive);
 }
 
 .Modal__back--qxUn_ {
