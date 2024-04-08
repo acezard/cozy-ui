@@ -152,11 +152,7 @@ you have deployed a version of the styleguidist containing your changes to your 
 Don't forget to change `USERNAME` by yours.
 
 ```bash
-yarn makeSpriteAndPalette
-yarn build
-yarn build:css:all
-yarn build:doc
-yarn deploy:doc --repo git@github.com:USERNAME/cozy-ui.git
+nvm use && yarn makeSpriteAndPalette && yarn build && yarn build:css:all && yarn build:doc && yarn deploy:doc --repo git@github.com:acezard/cozy-ui.git
 ```
 
 ⚠️ If the `deploy:doc` failed, you need to checkout your dev branch by doing `git checkout -`
