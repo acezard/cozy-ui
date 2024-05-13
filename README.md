@@ -161,6 +161,12 @@ yarn deploy:doc --repo git@github.com:USERNAME/cozy-ui.git
 
 ⚠️ If the `deploy:doc` failed, you need to checkout your dev branch by doing `git checkout -`
 
+Alternatively, you can use the `deploy-demo.sh` script with your GitHub username as an argument (this script must have been made executable):
+
+```bash
+./scripts/deploy-demo.sh <your-github-username>
+```
+
 ### Unit testing
 
 Be aware that snapshots in unit tests use the transpiled version of cozy-ui. Therefore if you make changes and need to update the snapshots, you need to transpile first.
