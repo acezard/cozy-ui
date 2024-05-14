@@ -152,20 +152,10 @@ you have deployed a version of the styleguidist containing your changes to your 
 Don't forget to change `USERNAME` by yours.
 
 ```bash
-yarn makeSpriteAndPalette
-yarn build
-yarn build:css:all
-yarn build:doc
-yarn deploy:doc --repo git@github.com:USERNAME/cozy-ui.git
+yarn build:all && yarn deploy:doc --repo git@github.com:USERNAME/cozy-ui.git
 ```
 
 ⚠️ If the `deploy:doc` failed, you need to checkout your dev branch by doing `git checkout -`
-
-Alternatively, you can use the `deploy-demo.sh` script with your GitHub username as an argument (this script must have been made executable):
-
-```bash
-./scripts/deploy-demo.sh <your-github-username>
-```
 
 ### Unit testing
 
